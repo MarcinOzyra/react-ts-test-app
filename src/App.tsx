@@ -1,7 +1,12 @@
-import './App.css';
+import Todos from './components/Todos';
+import Todo from './models/todo';
+
+// const itemsArr: string[] = ['one', 'two'];
 
 function App() {
-  return <div className="App"></div>;
+  const todos = [new Todo('three'), new Todo('four')];
+
+  return <Todos items={todos} />;
 }
 
 export default App;
