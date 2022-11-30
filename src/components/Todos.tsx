@@ -1,16 +1,20 @@
 import React from 'react';
 import Todo from '../models/todo';
+import { Todo as TodoComponent } from './Todo';
+import classes from './Todos.module.css';
 
 type props = {
   items: Todo[];
-  children?: React.ReactNode;
+  onRemoveTodo: (id: string) => void;
+  // children?: React.ReactNode;
 };
 
-const Todos = ({ items, children }: props) => {
+const Todos = ({ items, onRemoveTodo }: props) => {
   return (
-    <ul>
+    <ul className={classes.todos}>
       {items.map((item) => (
-        <li key={item.id}>{item.text}</li>
+        // <TodoComponent text={item.text} key={item.id} onRemoveTodo={onRemoveTodo.bind(null, item.id)} />
+        <TodoComponent text={item.text} key={item.id} onRemoveTodo={() => onRemoveTodo(item.id)} />
       ))}
     </ul>
   );
